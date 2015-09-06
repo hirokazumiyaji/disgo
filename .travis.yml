@@ -8,5 +8,6 @@ before_script:
   - cd /tmp && unzip disque.zip
   - cd /tmp/disque-master && make -j2
   - /tmp/disque-master/src/disque-server &
+  - cd ${TRAVIS_BUILD_DIR}
 script:
-  - go test -v
+  - go test -v ./disque
