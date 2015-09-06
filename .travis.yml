@@ -6,7 +6,7 @@ go:
 before_script:
   - wget https://github.com/antirez/disque/archive/master.zip -O /tmp/disque.zip
   - cd /tmp && unzip disque.zip
-  - cd /tmp/disque-master && make && make install
-  - disque-server &
+  - cd /tmp/disque-master && make -j2
+  - /tmp/disque-master/src/disque-server &
 script:
   - go test -v
