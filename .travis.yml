@@ -1,0 +1,12 @@
+language: go
+go:
+  - 1.4
+  - tip
+
+before_script:
+  - wget https://github.com/antirez/disque/archive/master.zip -O /tmp/disque.zip
+  - unzip /tmp/disque.zip
+  - cd /tmp/disque && make && make install
+  - disque-server &
+script:
+  - go test -v
